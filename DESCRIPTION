@@ -1,14 +1,14 @@
-Package: writR
-Title: Written Communications
+Package: Rtist
+Title: Creation of beautiful computational visualizations
 Version: 1.1
-Date: 2019-08-26
+Date: 2020-06-26
 Authors@R: 
     person(given = "Nicolas",
            family = "Mangin",
            role = c("aut", "cre"),
            email = "nicolas.jb.mangin@gmail.com",
            comment = c(ORCID = "0000-0002-1597-9376"))
-Description: Functions and interfaces to facilitate writing boooks, papers, presentations, reports, and dashboards.
+Description: Gather a set of functions and gadgets to create visualizations based on algoritms or statistics
 Encoding: UTF-8
 LazyData: true
 License: GPL-3 | file LICENSE
@@ -17,64 +17,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Imports:
-    RefManageR,
     dplyr,
-    plyr,
-    tibble,
-    shiny,
-    miniUI,
-    shinythemes,
-    colourpicker,
-    stringr,
-    psych,
-    rstudioapi,
-    rmarkdown,
-    yaml,
-    stats,
-    tidyr,
-    rticles,
-    tools,
-    rhandsontable,
-    readr,
-    purrr,
-    doParallel,
-    foreach,
-    stringi,
-    lexana,
-    stargazer,
-    utils,
-    ggplot2,
-    grid,
-    grDevices,
-    lubridate,
-    tokenizers,
-    ggtern,
-    plotly,
-    collapsibleTree,
-    ggiraphExtra,
-    ggridges,
-    VennDiagram,
-    treemap,
-    treemapify,
-    ggalt,
-    maptools,
-    cartogram,
-    ggraph,
-    igraph,
-    RColorBrewer,
-    broom,
-    mapproj,
-    DiagrammeR,
-    tidygraph,
-    igraph,
-    intergraph,
-    network,
-    networkDynamic,
-    ndtv,
-    sna,
-    ggforce,
-    concaveman,
-    rayshader,
-    av
-Suggests:
-    bibliogR
+    plyr
