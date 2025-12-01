@@ -24,4 +24,5 @@ Imports:
   sjPlot,
   shinyFiles,
   shinybusy,
-  shinyalert
+  shinyalert,
+  tibble
