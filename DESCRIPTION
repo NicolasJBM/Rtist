@@ -1,0 +1,27 @@
+Package: Rtist
+Title: Creation of beautiful computational visualizations
+Version: 1.1
+Date: 2020-06-26
+Authors@R: 
+    person(given = "Nicolas",
+           family = "Mangin",
+           role = c("aut", "cre"),
+           email = "nicolas.jb.mangin@gmail.com",
+           comment = c(ORCID = "0000-0002-1597-9376"))
+Description: Gather a set of functions and gadgets to create visualizations based on algoritms or statistics.
+Encoding: UTF-8
+LazyData: true
+License: GPL-3 | file LICENSE
+Depends: R (>= 3.6)
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.3
+Imports:
+  dplyr,
+  ggplot2,
+  grDevices,
+  shiny,
+  shinyWidgets,
+  sjPlot,
+  shinyFiles,
+  shinybusy,
+  shinyalert
