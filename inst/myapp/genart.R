@@ -43,7 +43,7 @@ genart <- shiny::shinyApp(
         ),
         shinydashboard::menuItem(
           shiny::span("FlameTrees", title = "FlameTrees"),
-          tabName = "flametree", icon = shiny::icon("linktree")
+          tabName = "flametree", icon = shiny::icon("tree")
         )
       )
     ),
@@ -61,7 +61,8 @@ genart <- shiny::shinyApp(
         ),
         
         shinydashboard::tabItem(
-          tabName = "rosas",  shiny::tags$br()
+          tabName = "rosas",  shiny::tags$br(),
+          Rtist::rosas_ui("rosas")
         )
         
       )
@@ -94,9 +95,9 @@ genart <- shiny::shinyApp(
     )
     
     Rtist::polar_server("polar")
+    Rtist::rosas_server("rosas")
     
     shiny::observeEvent(input$exit, {
-      teachR::course_clean_root()
       shiny::stopApp()
     })
   }

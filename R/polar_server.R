@@ -3,8 +3,6 @@
 #' @author Nicolas Mangin
 #' @description Module collecting the paraleters used to produce a polar distorsion.
 #' @param id Character. ID of the module to connect the user interface to the appropriate server side.
-#' @importFrom Rtist polar_distorsion
-#' @importFrom Rtist save_art
 #' @importFrom shiny NS
 #' @importFrom shiny eventReactive
 #' @importFrom shiny moduleServer
@@ -44,6 +42,7 @@ polar_server <- function(id){
         shp = input$shp,
         drwcol = input$drwcol,
         bkgcol = input$bkgcol,
+        rotation = input$rotation,
         coord = input$coord
       )
     })
@@ -82,6 +81,7 @@ polar_server <- function(id){
         shp = input$shp,
         drwcol = input$drwcol,
         bkgcol = input$bkgcol,
+        rotation = input$rotation,
         coord = input$coord
       )
       
@@ -120,6 +120,7 @@ polar_server <- function(id){
         shp = input$shp,
         drwcol = input$drwcol,
         bkgcol = input$bkgcol,
+        rotation = input$rotation,
         coord = input$coord
       ) |>
         utils::write.csv(base::paste0(folder_selected(), "/polar_", input$name, ".csv"), row.names = FALSE)

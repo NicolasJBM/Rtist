@@ -25,4 +25,6 @@ Imports:
   shinyFiles,
   shinybusy,
   shinyalert,
-  tibble
+  tibble,
+  stringr,
+  SpatialGraph

@@ -17,6 +17,7 @@
 #' @param shp Numeric
 #' @param drwcol Character
 #' @param bkgcol Character
+#' @param rotation Numeric. angle of rotation
 #' @param coord Character. nothing, "polar" or "radial"
 #' @return ggplot graph.
 #' @importFrom ggplot2 aes
@@ -29,6 +30,7 @@
 #' @importFrom ggplot2 theme_void
 #' @importFrom grDevices hsv
 #' @importFrom dplyr mutate
+#' @importFrom SpatialGraph rotation
 #' @export
 
 
@@ -54,6 +56,7 @@ polar_distorsion <- function(
     shp = 16,
     drwcol = grDevices::hsv(0.4, 0.4, 1),
     bkgcol = grDevices::hsv(0.6, 0.5, 0.2,1),
+    rotation = 0,
     coord = "polar"
 ){
   
@@ -75,6 +78,11 @@ polar_distorsion <- function(
   }
   
   df <- generate_points(my_formula, range = range, density = density, x, y, seed)
+  
+  df <- df |>
+    dplyr::select(x, y) |>
+    base::as.matrix() |>
+    SpatialGraph::rotation(rotation)
   
   nest <- df |>
     ggplot2::ggplot(ggplot2::aes(x = x, y = y)) +
