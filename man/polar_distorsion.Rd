@@ -18,7 +18,12 @@ polar_distorsion(
   alp = 0.05,
   sz = 0.75,
   shp = 16,
-  drwcol = grDevices::hsv(0.4, 0.4, 1),
+  cx = 1,
+  ex = 1,
+  cy = 0,
+  ey = 1,
+  ntl = 300,
+  plt = c("#FFFAAA", "#EECC00", "#DD5500", "#993300", "#550000"),
   bkgcol = grDevices::hsv(0.6, 0.5, 0.2, 1),
   rotation = 0,
   coord = "polar"
@@ -51,7 +56,17 @@ polar_distorsion(
 
 \item{shp}{Numeric}
 
-\item{drwcol}{Character}
+\item{cx}{Numeric}
+
+\item{ex}{Numeric}
+
+\item{cy}{Numeric}
+
+\item{ey}{range Numeric}
+
+\item{ntl}{Numeric}
+
+\item{plt}{Character vector}
 
 \item{bkgcol}{Character}
 

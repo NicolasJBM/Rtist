@@ -15,8 +15,13 @@
 #' @param alp Numeric
 #' @param sz Numeric
 #' @param shp Numeric
-#' @param drwcol Character
-#' @param bkgcol Character
+#' @param cx Numeric
+#' @param ex Numeric
+#' @param cy Numeric
+#' @param ey range Numeric
+#' @param ntl Numeric
+#' @param plt Character vector
+#' @param bkgcol Character 
 #' @param rotation Numeric. angle of rotation
 #' @param coord Character. nothing, "polar" or "radial"
 #' @return ggplot graph.
@@ -54,7 +59,12 @@ polar_distorsion <- function(
     alp = 0.05,
     sz = 0.75,
     shp = 16,
-    drwcol = grDevices::hsv(0.4, 0.4, 1),
+    cx = 1,
+    ex = 1,
+    cy = 0,
+    ey = 1,
+    ntl = 300,
+    plt = c("#FFFAAA","#EECC00","#DD5500","#993300","#550000"),
     bkgcol = grDevices::hsv(0.6, 0.5, 0.2,1),
     rotation = 0,
     coord = "polar"
@@ -82,22 +92,28 @@ polar_distorsion <- function(
   df <- df |>
     dplyr::select(x, y) |>
     base::as.matrix() |>
-    SpatialGraph::rotation(rotation)
+    SpatialGraph::rotation(rotation) |>
+    base::as.data.frame() |>
+    dplyr::mutate(col = Rtist::color_points(
+      x, cx = cx, ex = ex,
+      y, cy = cy, ey = ey,
+      ntl = ntl, plt = plt
+    ))
   
-  nest <- df |>
+  graph <- df |>
     ggplot2::ggplot(ggplot2::aes(x = x, y = y)) +
-    ggplot2::geom_point(alpha = alp, size = sz, shape = shp, color = drwcol) +
+    ggplot2::geom_point(alpha = alp, size = sz, shape = shp, color = df$col) +
     ggplot2::theme_void()
   
   if (coord == "polar"){
-    nest <- nest +
+    graph <- graph +
       ggplot2::coord_polar()
   } else if (coord == "radial"){
-    nest <- nest +
+    graph <- graph +
       ggplot2::coord_radial()
   }
     
-  nest +
+  graph +
     ggplot2::theme(
       panel.background = ggplot2::element_rect(fill = bkgcol),
       plot.background = ggplot2::element_rect(fill = bkgcol)
