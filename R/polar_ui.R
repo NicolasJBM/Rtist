@@ -70,7 +70,7 @@ polar_ui <- function(id){
         shiny::sliderInput(ns("d"), "Parameter d", min = 0, max = 10, step = 0.01, value = 2, width = "100%"),
         shiny::sliderInput(ns("gamma"), "gamma", min = 0.1, max = 10, step = 0.1, value = 2, width = "100%"),
         shiny::sliderInput(ns("range"), "range", min = 0.1, max = 10, step = 0.1, value = 5, width = "100%"),
-        shiny::sliderInput(ns("density"), "Density", min = 20, max = 1000, step = 1, value = 200, width = "100%"),
+        shiny::sliderInput(ns("density"), "Density", min = 20, max = 1000, step = 25, value = 200, width = "100%"),
         shiny::numericInput(ns("x"), "Parameter x", min = 0.1, max = 10, step = 0.1, value = 1, width = "100%"),
         shiny::numericInput(ns("y"), "Parameter y", min = 0.1, max = 10, step = 0.1, value = 1, width = "100%"),
         shiny::numericInput(ns("seed"), "seed", min = 1, step = 1, value = 20240713, width = "100%"),
@@ -87,12 +87,17 @@ polar_ui <- function(id){
       shiny::column(
         3,
         shiny::tags$h3("Colors"),
-        shiny::sliderInput(ns("cx"), "Parameter cx", min = -3, max = 3, step = 0.1, value = 1, width = "100%"),
-        shiny::sliderInput(ns("ex"), "Parameter ex", min = 1, max = 3, step = 0.1, value = 1, width = "100%"),
-        shiny::sliderInput(ns("cy"), "Parameter cy", min = -3, max = 3, step = 0.1, value = 1, width = "100%"),
-        shiny::sliderInput(ns("ey"), "Parameter ey", min = 1, max = 3, step = 0.1, value = 1, width = "100%"),
+        shiny::sliderInput(ns("cx"), "Parameter cx", min = -5, max = 5, step = 0.1, value = 1, width = "100%"),
+        shiny::sliderInput(ns("ex"), "Parameter ex", min = 1, max = 3, step = 1, value = 1, width = "100%"),
+        shiny::sliderInput(ns("cy"), "Parameter cy", min = -5, max = 5, step = 0.1, value = 1, width = "100%"),
+        shiny::sliderInput(ns("ey"), "Parameter ey", min = 1, max = 3, step = 1, value = 1, width = "100%"),
         shiny::numericInput(ns("ntl"), "Parameter ntl", min = 50, max = 1000, step = 100, value = 300, width = "100%"),
-        shiny::textInput(ns("plt"), "Drawing colors:", value = "#99FFC2"),
+        shiny::selectizeInput(
+          ns("plt"), label = "Drawing colors:",
+          choices = c("#FFFAAA","#EECC00","#DD5500","#993300","#550000"),
+          selected = c("#FFFAAA","#EECC00","#DD5500","#993300","#550000"),
+          multiple = TRUE, options=base::list(create=TRUE)
+        ),
         shinyWidgets::colorPickr(ns("bkgcol"), "Dot color", selected = "#1A2433FF")
       )
     )

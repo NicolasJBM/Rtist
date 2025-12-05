@@ -45,7 +45,7 @@ polar_server <- function(id){
         cy = input$cy,
         ey = input$ey,
         ntl = input$ntl,
-        plt = base::as.vector(stringr::str_split(input$plt, pattern = " ", simplify = TRUE)),
+        plt = input$plt,
         bkgcol = input$bkgcol,
         rotation = input$rotation,
         coord = input$coord
@@ -133,7 +133,7 @@ polar_server <- function(id){
         cy = input$cy,
         ey = input$ey,
         ntl = input$ntl,
-        plt = input$plt,
+        plt = base::paste(input$plt, collapse = " "),
         bkgcol = input$bkgcol,
         rotation = input$rotation,
         coord = input$coord

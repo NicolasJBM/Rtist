@@ -94,6 +94,7 @@ polar_distorsion <- function(
     base::as.matrix() |>
     SpatialGraph::rotation(rotation) |>
     base::as.data.frame() |>
+    dplyr::filter(base::is.finite(x), base::is.finite(y)) |>
     dplyr::mutate(col = Rtist::color_points(
       x, cx = cx, ex = ex,
       y, cy = cy, ey = ey,
