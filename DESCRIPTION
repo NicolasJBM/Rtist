@@ -21,10 +21,16 @@ Imports:
   grDevices,
   shiny,
   shinyWidgets,
+  shinycssloaders,
   sjPlot,
   shinyFiles,
   shinybusy,
   shinyalert,
   tibble,
   stringr,
-  SpatialGraph
+  SpatialGraph,
+  purrr,
+  tidyr,
+  scholR
+Remotes:
+  NicolasJBM/scholR
