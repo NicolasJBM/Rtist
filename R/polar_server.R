@@ -41,8 +41,35 @@ polar_server <- function(id){
     })
     
     parameters <- shiny::reactive({
-      shiny::req("path" %in% base::names(input$folder))
-      Rtist::gather_polar_parameters(path = folder_selected())
+      if ("path" %in% base::names(input$folder)){
+        Rtist::gather_polar_parameters(path = folder_selected())
+      } else {
+        tibble::tibble(
+          name = "Panda_dans_Bambou",
+          a = 1.5,
+          b = 3,
+          c = 2,
+          d = 2.5,
+          gamma = 3,
+          range = 2.8,
+          density = 650,
+          x = 2,
+          y = 1,
+          seed = 20240713,
+          alp = 0.1,
+          sz = 0.46,
+          shp = 16,
+          cx = -1,
+          ex = 1,
+          cy = 1,
+          ey = 1,
+          ntl = 300,
+          plt = "#FFFFFF #EEEEEE #DDDDDD #00FF33 #00AA66",
+          bkgcol = "#1A2433",
+          rotation = 340,
+          coord = "polar"
+        )
+      }
     })
     
     output$select_polar <- shiny::renderUI({
@@ -51,7 +78,7 @@ polar_server <- function(id){
         ns("slctpolar"),
         "Select a pattern:",
         choices = parameters()$name,
-        selected = "rose_des_glaces"
+        selected = parameters()$name[[1]]
       )
     })
     

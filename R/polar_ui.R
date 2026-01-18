@@ -72,7 +72,6 @@ polar_ui <- function(id){
         )
       )
     ),
-    shiny::tags$hr(),
     shiny::fluidRow(
       shiny::column(
         3,
