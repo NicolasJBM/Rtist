@@ -32,7 +32,8 @@ save_art <- function(
       width = wdth,
       height = hght,
       units = "cm",
-      dpi = "print"
+      dpi = "print",
+      limitsize = FALSE
     )
   } else {
     sjPlot::save_plot(

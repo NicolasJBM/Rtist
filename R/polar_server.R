@@ -102,7 +102,7 @@ polar_server <- function(id){
         ),
         shiny::fluidRow(
           shiny::column(4, shiny::numericInput(ns("gamma"), "gamma (0, 10)", value = startparam()$gamma[[1]], width = "100%")),
-          shiny::column(4, shiny::numericInput(ns("range"), "range (-5, 5)", value = startparam()$range[[1]], width = "100%")),
+          shiny::column(4, shiny::numericInput(ns("range"), "range (1, 10)", value = startparam()$range[[1]], width = "100%")),
           shiny::column(4, shiny::numericInput(ns("density"), "density (10, 1000)", value = startparam()$density[[1]], width = "100%"))
         ),
         shiny::fluidRow(
@@ -148,7 +148,7 @@ polar_server <- function(id){
           shiny::column(
             4,
             shiny::selectizeInput(
-              ns("bkgcol"), label = "Drawing colors:",
+              ns("bkgcol"), label = "Background color:",
               choices = startparam()$bkgcol,
               selected = startparam()$bkgcol,
               multiple = FALSE, options=base::list(create=TRUE)
